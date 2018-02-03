@@ -1,0 +1,44 @@
+---
+title: "DDP Week 4 Assignment"
+author: "Dr. Rich Huebner"
+date: "February 2, 2018"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Welcome and Introduction
+
+This presentation discusses the final Week 4 project for the Coursera course called, 
+Developing Data Products.
+
+The instructions are to design and implement a shiny app that also makes use of the plotly
+library, and does so in a creative way.
+
+I am using a specialized data set regarding HR. The data set was developed by Dr. Rich Huebner
+and is available at Kaggle here:  https://www.kaggle.com/rhuebner/human-resources-data-set/data
+
+
+
+
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
