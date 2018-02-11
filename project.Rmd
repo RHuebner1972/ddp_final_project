@@ -9,6 +9,10 @@ output: slidy_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r}
+library(plotly)
+```
+
 ## Welcome and Introduction
 
 This presentation discusses the final Week 4 project for the Coursera course called, 
@@ -20,25 +24,81 @@ library, and does so in a creative way.
 I am using a specialized data set regarding HR. The data set was developed by Dr. Rich Huebner
 and is available at Kaggle here:  https://www.kaggle.com/rhuebner/human-resources-data-set/data
 
+All of the code is also available here, under my github account.
+
+https://github.com/RHuebner1972/ddp_final_project
+
+## Background Information
+
+- The HR data set was created specifically for HR students to explore data visualization techniques.
+- HR students grab the data set and explore the different features, and learn how to create the visualizations in Tableau.
+- The data set has numerous features, but I only use a few of them in the Shiny app to demonstrate the types of things we could do.
 
 
+## Features used within the data.
+
+This app will use three features from the HR data set:
+
+- Department
+- Pay Rate   (Loaded in a data frame as Pay.Rate)
+- Age
+
+Of course there won't be a relationship between Pay Rate and Age, but still thought
+it would be interesting to plot them, based on Department. Perhaps there are 
+some patterns that could emerge, or you might learn something new about the data.
 
 
-## Slide with Bullets
+## Where can you see the app "live" and play around with it ?
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+Here is the location of the actual application, that uses shiny and plotly.
 
-## Slide with R Output
+https://richhuebner.shinyapps.io/hr-app1/
 
-```{r cars, echo = TRUE}
-summary(cars)
+- To use the application, you can slide the slider to select the number of bins for the histogram.
+- Changing the number of bins results in immediate (reactive) changes to the histogram.
+- Also, you can select a different department from the drop-down menu, and the histogram and plotly plot will update accordingly.
+
+Look for differences across departments.  
+
+Are there any relationships or patterns that you see?
+
+
+## Sample output from the app - Histogram
+
+```{r}
+df <- read.csv('HRDataset_v7.csv', sep=',')
+
+
+x <- df
+x <- x[ which(df$Department == 'IT/IS'),   ]
+z <- x$Pay.Rate
+bins <- seq(min(z), max(z), length.out = 20)
+hist(z, breaks = bins, col = 'blue', border = 'white', xlab = 'Pay Rate', main = 'Histogram of Pay Rates for All IT/IS Staff')
+
 ```
 
-## Slide with Plot
+## Plot output
 
-```{r pressure}
-plot(pressure)
+
+```{r}
+
+filtered <- df[ which(df$Department == 'IT/IS'), ]
+
+plot_ly(filtered, type = 'scatter',
+            mode = 'markers',
+            x = ~Age,
+            y = ~Pay.Rate
+
+            ) # end plot_ly
+
 ```
+
+## Further information
+
+Further information about the data set can be retrieved from Kaggle, or by contacting Dr. Rich Huebner.
+
+- Dr. Rich Huebner
+- Rich.Huebner@yahoo.com
+
+Thank you!
 

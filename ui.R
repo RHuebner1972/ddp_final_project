@@ -6,17 +6,13 @@
 #
 #    http://shiny.rstudio.com/
 #
-
 library(shiny)
 library(plotly)
-setwd("D:/Data/ddp-week4/hr-app1")
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-
   # Application title
   titlePanel("HR Pay Rate Information for Fictitious Company"),
-
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
@@ -34,7 +30,6 @@ shinyUI(fluidPage(
                    )
 
     ),
-
     # Show a plot of the generated distribution
     mainPanel(
        plotOutput("distPlot"),

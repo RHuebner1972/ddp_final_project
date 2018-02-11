@@ -16,8 +16,6 @@
 
 library(shiny)
 library(plotly)
-library(data.table)
-
 df <- read.csv('HRDataset_v7.csv', sep=',')
 
 # Define server logic required to draw a histogram
